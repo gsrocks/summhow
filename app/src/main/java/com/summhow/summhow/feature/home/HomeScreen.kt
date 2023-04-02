@@ -40,13 +40,19 @@ fun NavController.navigateToHome(navOptions: NavOptions? = null) {
 }
 
 @Composable
-fun HomeRoute() {
-    HomeScreen()
+fun HomeRoute(
+    onNavigateToCreateEvent: () -> Unit
+) {
+    HomeScreen(
+        onNavigateToCreateEvent = onNavigateToCreateEvent
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    onNavigateToCreateEvent: () -> Unit
+) {
     val destinations = listOf(
         HomeDestination.Events,
         HomeDestination.Profile
@@ -83,7 +89,7 @@ fun HomeScreen() {
         },
         floatingActionButton = {
             AnimatedVisibility(visible = shouldShowFab, enter = fadeIn(), exit = fadeOut()) {
-                FloatingActionButton(onClick = { /*TODO*/ }) {
+                FloatingActionButton(onClick = onNavigateToCreateEvent) {
                     Icon(
                         imageVector = Icons.Default.Add,
                         contentDescription = stringResource(R.string.create_event)
@@ -112,6 +118,8 @@ fun HomeScreen() {
 @Composable
 fun HomeScreenPreview() {
     SummhowTheme {
-        HomeScreen()
+        HomeScreen(
+            onNavigateToCreateEvent = {}
+        )
     }
 }

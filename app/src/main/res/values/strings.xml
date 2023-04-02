@@ -3,4 +3,6 @@
     <string name="create_event">Create event</string>
     <string name="events">Events</string>
     <string name="profile">Profile</string>
+    <string name="save">Save</string>
+    <string name="close">Close</string>
 </resources>
