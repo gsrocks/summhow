@@ -15,3 +15,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "Summhow"
 include(":app")
+include(":core:model")
+include(":core:network")
+include(":core:datastore")
+include(":core:data")
+include(":core:common")
