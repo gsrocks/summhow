@@ -4,7 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.core.view.WindowCompat
-import com.summhow.summhow.feature.home.HomeRoute
+import androidx.navigation.compose.rememberNavController
+import com.summhow.summhow.navigation.SummhowNavHost
 import com.summhow.summhow.ui.theme.SummhowTheme
 
 class MainActivity : ComponentActivity() {
@@ -13,8 +14,9 @@ class MainActivity : ComponentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setContent {
+            val navController = rememberNavController()
             SummhowTheme {
-                HomeRoute()
+                SummhowNavHost(navController = navController)
             }
         }
     }
